@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>لعبة الجري - Subway Style</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- شاشة البداية عشان الصوت يشتغل أول ما تدوس ابدأ -->
+        <div id="start-screen" onclick="startGame()">
+            <h1>🎮 Click here to Start the Game</h1>
+        </div>
+
+        <!-- النقاط -->
+        <div id="ui-top">
+            <span id="score">Points 0</span>
+            <div class="sound-controls">
+                <button class="btn-option" onclick="toggleSound()">🔊</button>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5" onchange="changeVolume(this.value)">
+            </div>
+        </div>
+
+        <!-- الطريق والخطوط -->
+        <div class="road">
+            <div class="line-road"></div>
+            <div class="line-road"></div>
+        </div>
+
+        <!-- الشخصية -->
+        <div id="player" class="lane-center">
+            <div class="head"></div>
+            <div class="body"></div>
+        </div>
+
+        <!-- العائق اللي جاي عليك -->
+        <div id="obstacle" class="lane-center"></div>
+    </div>
+
+    <!-- أزرار التحكم -->
+    <div id="controls">
+        <button class="control-btn" onclick="moveLane('left')">⬅️</button>
+        <button class="control-btn" onclick="moveLane('right')">➡️</button>
+    </div>
+
+    <!-- مسارات الصوتيات مظبوطة على فولدر sound system -->
+    <audio id="gameSound" src="soundsystem/Gamesound.mp3" loop></audio>
+    <audio id="jumpSound" src="soundsystem/Jump.mp3"></audio>
+    <audio id="hitSound" src="soundsystem/Hit.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
